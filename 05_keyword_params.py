@@ -1,5 +1,4 @@
 # default parameters: param_name=value
-
 def food_order_form(
         first_name,
         last_name,
@@ -26,11 +25,11 @@ def food_order_form(
 
 
 food_order_form(
-    "Robert",
-    "Vari",
-    "0620 334 9876",
-    "mail.pythonsuli@gmail.com",
-    "gulas",
+    first_name="Robert",
+    last_name="Vari",
+    phone="0620 334 9876",
+    email="mail.pythonsuli@gmail.com",
+    food="gulas",
+    coupon="4342jgregr",
     message="A kapukód a futárnak: 34",
-    coupon="4342jgregr"
 )
