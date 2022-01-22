@@ -16,20 +16,21 @@ def timer(func):
     return wrapper
 
 
-
-
+@timer
 def worker1():
     print("Worker1 Started")
     time.sleep(random.randint(3, 10))
     print("Worker1 finished!")
 
 
+@timer
 def worker2():
     print("Worker2 Started")
     time.sleep(random.randint(3, 10))
     print("Worker2 finished!")
 
 
+@timer
 def worker3():
     print("Worker3 Started")
     time.sleep(random.randint(3, 10))
