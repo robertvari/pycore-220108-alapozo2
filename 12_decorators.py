@@ -19,17 +19,6 @@ def worker3():
     print("Worker3 finished!")
 
 
-start_time = time.time()
 worker1()
-
-print(f"Job time: {time.time()-start_time}")
-
-start_time = time.time()
 worker2()
-
-print(f"Job time: {time.time()-start_time}")
-
-start_time = time.time()
 worker3()
-
-print(f"Job time: {time.time()-start_time}")
