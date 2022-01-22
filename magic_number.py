@@ -15,7 +15,8 @@ def main():
     # ask player for his/her number
     player_number = get_player_number()
 
-    # todo compare number
+    # compare_numbers -> bool
+    result = compare_numbers(magic_number, player_number)
 
     # todo if numbers are == player wins
     # todo else call ask player for their number
@@ -32,11 +33,16 @@ def generate_random_number() -> str:
 
 
 def get_player_number() -> str:
-    result = input("What is your number?")
+    # result = input("What is your number?")
+    result = '5'
 
     # todo check if input is valid
 
     return result
+
+
+def compare_numbers(magic_number, player_number):
+    return magic_number == player_number
 
 
 main()
