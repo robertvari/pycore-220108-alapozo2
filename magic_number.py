@@ -23,6 +23,10 @@ def main():
     while not result:
         max_tries -= 1
 
+        if max_tries == 0:
+            print("You have no more tries :(")
+            break
+
         player_number = get_player_number()
         result = compare_numbers(magic_number, player_number)
 
