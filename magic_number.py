@@ -13,6 +13,9 @@ def main():
     # get random number
     magic_number = generate_random_number()
 
+    # todo remove this!
+    print(f"REMOVE THIS magic_number: {magic_number}")
+
     # ask player for his/her number
     player_number = get_player_number()
 
@@ -54,6 +57,13 @@ def get_player_number() -> str:
 
 def compare_numbers(magic_number, player_number):
     return magic_number == player_number
+
+
+def end_game(magic_number, player_number):
+    if magic_number == player_number:
+        print(f"You win! My number was {magic_number}")
+    else:
+        print("Game over man....")
 
 
 main()
