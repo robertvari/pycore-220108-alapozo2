@@ -27,11 +27,11 @@ def intro():
     print(f"You have {MAX_TRIES} tries.")
 
 
-def generate_random_number():
-    return random.randint(MIN_NUMBER, MAX_NUMBER)
+def generate_random_number() -> str:
+    return str(random.randint(MIN_NUMBER, MAX_NUMBER))
 
 
-def get_player_number():
+def get_player_number() -> str:
     result = input("What is your number?")
 
     # todo check if input is valid
