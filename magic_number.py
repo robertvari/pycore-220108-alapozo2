@@ -12,7 +12,8 @@ def main():
     # get random number
     magic_number = generate_random_number()
 
-    # todo ask player for their number
+    # ask player for his/her number
+    player_number = get_player_number()
 
     # todo compare number
 
@@ -28,6 +29,14 @@ def intro():
 
 def generate_random_number():
     return random.randint(MIN_NUMBER, MAX_NUMBER)
+
+
+def get_player_number():
+    result = input("What is your number?")
+
+    # todo check if input is valid
+
+    return result
 
 
 main()
