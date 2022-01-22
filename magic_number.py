@@ -67,5 +67,12 @@ def end_game(magic_number, player_number):
     else:
         print("Game over man....")
 
+    result = input("Do you want to play again? (y/n)")
+
+    if result == "y":
+        main()
+    else:
+        print("See you later!")
+        exit()
 
 main()
