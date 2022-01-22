@@ -25,4 +25,12 @@ def food_order_form(
         print(f"Total price: {price} Ft")
 
 
-food_order_form()
+food_order_form(
+    "Robert",
+    "Vari",
+    "0620 334 9876",
+    "mail.pythonsuli@gmail.com",
+    "gulas",
+    message="A kapukód a futárnak: 34",
+    coupon="4342jgregr"
+)
