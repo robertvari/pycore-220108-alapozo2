@@ -1,6 +1,23 @@
 import random, time
 
 
+def timer(func):
+    def wrapper(*args, **kwargs):
+        print("timer started...")
+
+        start_time = time.time()
+
+        result = func(*args, **kwargs)
+
+        print(f"Job time: {time.time() - start_time}")
+
+        return result
+
+    return wrapper
+
+
+
+
 def worker1():
     print("Worker1 Started")
     time.sleep(random.randint(3, 10))
