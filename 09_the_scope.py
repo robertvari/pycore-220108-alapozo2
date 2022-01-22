@@ -7,4 +7,10 @@ def say_my_name():
     print(name)
 
 
+def override_global():
+    global name
+    name = "Csaba"
+
+
+override_global()
 say_my_name()
