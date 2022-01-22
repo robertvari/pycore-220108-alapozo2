@@ -2,12 +2,13 @@ import random
 
 MIN_NUMBER = 1
 MAX_NUMBER = 10
-MAX_TRIES = 3
 
 
 def main():
+    max_tries = 3
+
     # print intro
-    intro()
+    intro(max_tries)
 
     # get random number
     magic_number = generate_random_number()
@@ -18,14 +19,20 @@ def main():
     # compare_numbers -> bool
     result = compare_numbers(magic_number, player_number)
 
-    # todo if numbers are == player wins
+    # while result == False do another round
+    while not result:
+        max_tries -= 1
+
+        player_number = get_player_number()
+        result = compare_numbers(magic_number, player_number)
+
     # todo else call ask player for their number
 
 
-def intro():
+def intro(max_tries):
     print("=" * 50, "MAGIC NUMBER", "=" * 50)
     print(f"There is a number between {MIN_NUMBER} and {MAX_NUMBER}. Can you guess it?")
-    print(f"You have {MAX_TRIES} tries.")
+    print(f"You have {max_tries} tries.")
 
 
 def generate_random_number() -> str:
@@ -33,8 +40,8 @@ def generate_random_number() -> str:
 
 
 def get_player_number() -> str:
-    # result = input("What is your number?")
-    result = '5'
+    result = input("What is your number?")
+    # result = '5'
 
     # todo check if input is valid
 
