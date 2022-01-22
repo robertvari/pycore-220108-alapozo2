@@ -1,10 +1,10 @@
 # global scope. global variable
-FOLDER_PATH = "c:\\...."
+name = "Robert"
 
 
 def say_my_name():
     # say_my_name scope
-    print(FOLDER_PATH)
+    print(name)
 
 
 say_my_name()
