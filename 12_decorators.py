@@ -2,6 +2,7 @@ import random, time
 
 
 def timer(func):
+
     def wrapper(*args, **kwargs):
         print("timer started...")
 
