@@ -23,16 +23,7 @@ def main():
     result = compare_numbers(magic_number, player_number)
 
     # while result == False do another round
-    while not result:
-        max_tries -= 1
-
-        if max_tries == 0:
-            print("You have no more tries :(")
-            break
-
-        print(f"Wrong answer. You have {max_tries} tries lef.")
-        player_number = get_player_number()
-        result = compare_numbers(magic_number, player_number)
+    player_number = game_loop(result, player_number, max_tries, magic_number)
 
     # end game check
     end_game(magic_number, player_number)
@@ -74,5 +65,20 @@ def end_game(magic_number, player_number):
     else:
         print("See you later!")
         exit()
+
+
+def game_loop(result, player_number, max_tries, magic_number):
+    while not result:
+        max_tries -= 1
+
+        if max_tries == 0:
+            print("You have no more tries :(")
+            break
+
+        print(f"Wrong answer. You have {max_tries} tries lef.")
+        player_number = get_player_number()
+        result = compare_numbers(magic_number, player_number)
+
+    return player_number
 
 main()
