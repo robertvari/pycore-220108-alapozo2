@@ -33,7 +33,8 @@ def main():
         player_number = get_player_number()
         result = compare_numbers(magic_number, player_number)
 
-    # todo else call ask player for their number
+    # end game check
+    end_game(magic_number, player_number)
 
 
 def intro(max_tries):
