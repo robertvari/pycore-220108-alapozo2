@@ -17,27 +17,35 @@ def timer(func):
     return wrapper
 
 
+def my_simple_decorator(func):
+    def wrapper(*args, **kwargs):
+        func(*args, **kwargs)
+
+    return wrapper
+
+
 @timer
-def worker1():
+def worker1(sleep_time):
     print("Worker1 Started")
-    time.sleep(random.randint(3, 10))
+    time.sleep(sleep_time)
     print("Worker1 finished!")
 
+    return 3.14
 
-@timer
+
+@my_simple_decorator
 def worker2():
     print("Worker2 Started")
     time.sleep(random.randint(3, 10))
     print("Worker2 finished!")
 
 
-@timer
+@my_simple_decorator
 def worker3():
     print("Worker3 Started")
     time.sleep(random.randint(3, 10))
     print("Worker3 finished!")
 
 
-worker1()
-worker2()
-worker3()
+result = worker1(3)
+print(result)
