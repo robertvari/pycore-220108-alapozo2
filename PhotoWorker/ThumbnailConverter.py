@@ -23,9 +23,10 @@ def update_queue(file_list):
         JOB_QUEUE.put(i)
 
 
-def spawn_workers(n):
-    for _ in range(n):
-        t = threading.Thread(target=)
+def spawn_workers(worker_number, thumbnail_folder):
+    for _ in range(worker_number):
+        t = threading.Thread(target=photo_worker, args=[thumbnail_folder])
+        t.start()
 
 
 def photo_worker(thumbnail_folder):
@@ -36,6 +37,8 @@ def photo_worker(thumbnail_folder):
         img = Image.open(photo_file)
         img.thumbnail( (THUMB_SIZE, THUMB_SIZE) )
         img.save(os.path.join(thumbnail_folder, os.path.basename(photo_file)))
+
+        time.sleep(1)
 
         JOB_QUEUE.task_done()
 
