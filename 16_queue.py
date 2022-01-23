@@ -21,3 +21,8 @@ def file_worker():
         print(f"{threading.current_thread().name}: I finsihed {next_job}!!!")
 
         job_queue.task_done()
+
+
+for _ in range(16):
+    t = threading.Thread(target=file_worker)
+    t.start()
