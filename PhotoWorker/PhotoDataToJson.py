@@ -1,14 +1,22 @@
 from utilities.file_utils import get_files, get_folder_path
+from utilities.image_utils import get_meta_data
 
 
 def main():
-    # todo get folder path from user
-    folder_path = get_folder_path()
+    # get folder path from user
+    folder_path = get_folder_path(default_path=r"C:\Work\_PythonSuli\pycore-220108\photos")
 
-    # todo get all image files from folder
+    # get all image files from folder
+    photo_files = get_files(folder_path, name_filter=".jpg")
+
+    assert photo_files, "I couldn't find any .jpg files.. :("
 
     # todo extract data from image meta tags
+    image_data = get_meta_data(photo_files)
 
     # todo save json to the root folder
 
     pass
+
+
+main()

@@ -32,11 +32,14 @@ def get_files(root_folder: str, files=[], name_filter=None):
     return files
 
 
-def get_folder_path() -> str:
+def get_folder_path(default_path=None) -> str:
     """
     Asks user for the root folder and checks it's validity.
     :return: valid folder path (str)
     """
+
+    if default_path:
+        return default_path
 
     result = input("Photo folder?")
     assert os.path.exists(result), f"Folder does not exist: {result}"
