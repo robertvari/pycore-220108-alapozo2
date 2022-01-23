@@ -1,4 +1,4 @@
-import random, time, threading
+import time, threading
 
 
 def worker1(sleep_time):
