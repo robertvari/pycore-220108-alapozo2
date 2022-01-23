@@ -11,7 +11,7 @@ def main():
 
     assert photo_files, "I couldn't find any .jpg files.. :("
 
-    # todo extract data from image meta tags
+    # extract data from image meta tags
     image_data = get_meta_data(photo_files)
 
     # todo save json to the root folder
