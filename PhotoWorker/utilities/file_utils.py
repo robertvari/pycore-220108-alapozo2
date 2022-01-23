@@ -40,5 +40,6 @@ def get_folder_path() -> str:
 
     result = input("Photo folder?")
     assert os.path.exists(result), f"Folder does not exist: {result}"
+    assert os.path.isdir(result), f"Path must be a directory."
 
     return result
