@@ -13,13 +13,20 @@ def get_files(root_folder: str, files=[], name_filter=None):
         if os.path.isfile(os.path.join(root_folder, i)):
             files.append(os.path.join(root_folder, i))
 
-    # todo get subfolders
+    # get subfolders
     subfolders = []
 
     for i in folder_content:
         if os.path.isdir(os.path.join(root_folder, i)):
             subfolders.append(os.path.join(root_folder, i))
 
-    pass
+    # do it again for all subfolders
+    for subfolder in subfolders:
+        get_files(subfolder, files)
 
-get_files(r"C:\Work\_PythonSuli\pycore-220108\alapozo2")
+    return files
+
+
+found_files = get_files(r"C:\Work\_PythonSuli\pycore-220108\alapozo2")
+print(len(found_files))
+print(found_files)
