@@ -1,4 +1,4 @@
-import os
+import os, json
 
 
 def get_files(root_folder: str, files=[], name_filter=None):
@@ -46,3 +46,11 @@ def get_folder_path(default_path=None) -> str:
     assert os.path.isdir(result), f"Path must be a directory."
 
     return result
+
+
+def save_photo_data(photo_data: dict, root_folder: str):
+    data_file_path = os.path.join(root_folder, "photo_data.json")
+    with open(data_file_path, "w") as f:
+        json.dump(photo_data, f)
+
+    print(f"Data saved: {data_file_path}")

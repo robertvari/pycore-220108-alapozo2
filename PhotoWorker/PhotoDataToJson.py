@@ -1,4 +1,4 @@
-from utilities.file_utils import get_files, get_folder_path
+from utilities.file_utils import get_files, get_folder_path, save_photo_data
 from utilities.image_utils import get_meta_data
 
 
@@ -14,9 +14,8 @@ def main():
     # extract data from image meta tags
     image_data = get_meta_data(photo_files)
 
-    # todo save json to the root folder
-
-    pass
+    # save json to the root folder
+    save_photo_data(image_data, folder_path)
 
 
 main()
