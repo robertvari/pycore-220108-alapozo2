@@ -3,6 +3,7 @@ from utilities.decorators import timer, logger
 
 
 @timer
+@logger
 def worker1(sleep_time):
     print("Worker1 Started")
     time.sleep(sleep_time)
@@ -25,5 +26,4 @@ def worker3():
     print("Worker3 finished!")
 
 
-result = worker1(3)
-print(result)
+worker1(3)

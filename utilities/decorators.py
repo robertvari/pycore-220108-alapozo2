@@ -1,4 +1,5 @@
-import time, logging
+import time, logging, getpass
+from datetime import datetime
 
 
 def timer(func):
@@ -21,6 +22,10 @@ def logger(func):
     logging.basicConfig(filename="my_log.log", level=logging.INFO)
 
     def wrapper(*args, **kwargs):
+        print("logger started")
+        logging.info(f"{datetime.now()} User: {getpass.getuser()}")
+
         result = func(*args, **kwargs)
+
         return result
     return wrapper
