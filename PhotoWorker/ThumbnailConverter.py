@@ -1,4 +1,4 @@
-import os.path
+import os
 
 from utilities.file_utils import get_files, get_folder_path
 import threading, time, queue
@@ -6,6 +6,7 @@ from PIL import Image
 
 
 THUMB_SIZE = 150
+THUMB_FOLDER_NAME = "_thumbnails"
 JOB_QUEUE = queue.Queue()
 my_list = []
 
@@ -16,6 +17,14 @@ def main():
     photo_list = get_files(root_folder, name_filter=".jpg")
 
     update_queue(photo_list)
+
+    # create folder for thumbnails
+    thumb_folder_path = os.path.join(root_folder, THUMB_FOLDER_NAME)
+    if not os.path.exists(thumb_folder_path):
+        os.makedirs(thumb_folder_path)
+
+    # start workers
+    spawn_workers(16, thumb_folder_path)
 
 
 def update_queue(file_list):
@@ -37,8 +46,6 @@ def photo_worker(thumbnail_folder):
         img = Image.open(photo_file)
         img.thumbnail( (THUMB_SIZE, THUMB_SIZE) )
         img.save(os.path.join(thumbnail_folder, os.path.basename(photo_file)))
-
-        time.sleep(1)
 
         JOB_QUEUE.task_done()
 
