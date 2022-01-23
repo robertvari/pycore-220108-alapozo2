@@ -32,6 +32,7 @@ def get_files(root_folder: str, files=[], name_filter=None):
     return files
 
 
-found_files = get_files(r"C:\Work\_PythonSuli\pycore-220108\photos", name_filter=".jpg")
-print(len(found_files))
-print(found_files)
+if __name__ == '__main__':
+    found_files = get_files(r"C:\Work\_PythonSuli\pycore-220108\photos", name_filter=".jpg")
+    print(len(found_files))
+    print(found_files)
