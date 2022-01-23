@@ -27,7 +27,7 @@ def get_files(root_folder: str, files=[], name_filter=None):
 
     # do it again for all subfolders
     for subfolder in subfolders:
-        get_files(subfolder, files)
+        get_files(subfolder, files, name_filter)
 
     return files
 
