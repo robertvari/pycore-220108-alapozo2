@@ -7,3 +7,5 @@ print(multiply_numbers(10, 2))
 print(divide_numbers(10, 2))
 
 name_list = ["Vári Róbert", "Kiss Elemér", "Nagy Adrienn", "Tóth Barna", "Kiss Elemér Aladár"]
+print(sorted(name_list))
+print(sorted(name_list, key=lambda name: name.split()[-1]))
