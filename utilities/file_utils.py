@@ -11,7 +11,12 @@ def get_files(root_folder: str, files=[], name_filter=None):
     # get all files skip folders
     for i in folder_content:
         if os.path.isfile(os.path.join(root_folder, i)):
-            files.append(os.path.join(root_folder, i))
+            # todo implement name_filter
+            if name_filter:
+                if name_filter.lower() in i.lower():
+                    files.append(os.path.join(root_folder, i))
+            else:
+                files.append(os.path.join(root_folder, i))
 
     # get subfolders
     subfolders = []
@@ -27,6 +32,6 @@ def get_files(root_folder: str, files=[], name_filter=None):
     return files
 
 
-found_files = get_files(r"C:\Work\_PythonSuli\pycore-220108\alapozo2")
+found_files = get_files(r"C:\Work\_PythonSuli\pycore-220108\photos", name_filter=".jpg")
 print(len(found_files))
 print(found_files)
